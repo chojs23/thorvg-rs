@@ -9,8 +9,8 @@ For a safe, idiomatic Rust API, use the [`thorvg`](https://crates.io/crates/thor
 ## Versioning
 
 This crate carries its own SemVer; the bundled ThorVG C++ release is
-recorded as build metadata. For example, `0.3.2+thorvg-1.1.0` is crate
-`0.3.2` bundling ThorVG `1.1.0`. See [`CHANGELOG.md`](CHANGELOG.md).
+recorded as build metadata. For example, `0.4.0+thorvg-1.1.2` is crate
+`0.4.0` bundling ThorVG `1.1.2`. See [`CHANGELOG.md`](CHANGELOG.md).
 
 ## Build modes
 
@@ -36,12 +36,13 @@ pkg-config required.
 | `expressions` | ✅ | Lottie expressions via JerryScript (~200 KB RAM) |
 | `threads` | ✅ | Multi-threaded TaskScheduler (`std::thread`) |
 | `file-io` | ✅ | Filesystem I/O APIs in ThorVG |
+| `video` | | Experimental video playback via ThorVG's AVFoundation backend (macOS / iOS; no-op elsewhere) |
 
 Each loader / capability flag toggles the corresponding source files and `#define` in the generated `config.h`. Disable defaults and pick what you need for embedded use:
 
 ```toml
 [dependencies]
-thorvg-sys = { version = "0.3", default-features = false, features = ["vendored", "lottie", "svg"] }
+thorvg-sys = { version = "0.4", default-features = false, features = ["vendored", "lottie", "svg"] }
 ```
 
 ## Cross-compilation
